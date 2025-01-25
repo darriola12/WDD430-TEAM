@@ -1,6 +1,7 @@
 "use client"; // Mark this file as a client component
 
 import React, { useState } from "react";
+import Link from "next/link"; // Import Link from Next.js
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,36 +28,36 @@ function Navbar() {
           } absolute top-16 left-0 w-full bg-gray-800 sm:static sm:flex sm:space-x-4 sm:w-auto transition-all duration-300 ease-in-out`}
         >
           <li className="border-b border-gray-700 sm:border-none">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="block px-4 py-2 hover:bg-gray-700 sm:hover:bg-transparent sm:hover:underline"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li className="border-b border-gray-700 sm:border-none">
-            <a
-              href="#"
+            <Link
+              href="/sellers"
               className="block px-4 py-2 hover:bg-gray-700 sm:hover:bg-transparent sm:hover:underline"
             >
               Sellers
-            </a>
+            </Link>
           </li>
           <li className="border-b border-gray-700 sm:border-none">
-            <a
-              href="#"
+            <Link
+              href="/products"
               className="block px-4 py-2 hover:bg-gray-700 sm:hover:bg-transparent sm:hover:underline"
             >
               Products
-            </a>
+            </Link>
           </li>
           <li className="border-b border-gray-700 sm:border-none">
-            <a
-              href="#"
+            <Link
+              href="/about-us"
               className="block px-4 py-2 hover:bg-gray-700 sm:hover:bg-transparent sm:hover:underline"
             >
               About Us
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

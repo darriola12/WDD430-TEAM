@@ -29,12 +29,12 @@ export default function HomeContent() {
           Welcome to Handcrafted Haven!
         </h1>
 
-        {/* Horizontal Works Section */}
+     
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-5xl">
           {/* Work 1 */}
           <div className="p-6 text-center bg-white bg-opacity-20 backdrop-blur-md rounded-lg shadow-md">
             <p className="text-white mt-2">
-             waar creativiteit tot leven komt
+             war creativiteit tot leven komt
             </p>
           </div>
 
