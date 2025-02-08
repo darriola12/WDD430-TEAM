@@ -2,31 +2,44 @@
 
 import React, { useState } from 'react';
 
-const LoginPage = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    setError(""); // Clear any previous errors
+    setSuccess(""); // Clear any previous success messages
 
-    if (res.ok) {
-      window.location.href = "/dashboard"; // Redirect to dashboard on success
-    } else {
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
       const data = await res.json();
-      setError(data.message || "Invalid credentials");
+
+      if (res.ok) {
+        setSuccess("Account created successfully! Redirecting to login...");
+        setTimeout(() => {
+          window.location.href = "/login"; // Redirect to login page after successful sign-up
+        }, 2000); // Redirect after 2 seconds
+      } else {
+        setError(data.message || "Failed to create account. Please try again.");
+      }
+    } catch (error) {
+      setError("An error occurred. Please try again.");
     }
   }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
       <div className="bg-white/20 backdrop-blur-lg p-8 rounded-xl shadow-2xl w-96 border border-white/10">
-        <h2 className="text-3xl font-bold mb-6 text-center text-white">Login</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-white">Sign Up</h2>
         {error && <p className="text-red-400 text-center mb-4">{error}</p>}
+        {success && <p className="text-green-400 text-center mb-4">{success}</p>}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-white/80 mb-2">Email</label>
@@ -54,13 +67,13 @@ const LoginPage = () => {
             type="submit"
             className="w-full bg-white text-indigo-600 py-3 rounded-lg font-semibold hover:bg-white/90 transition duration-200 ease-in-out"
           >
-            Login
+            Sign Up
           </button>
         </form>
         <p className="mt-6 text-center text-white/80">
-          Don't have an account?{" "}
-          <a href="/signup" className="text-white font-semibold hover:underline">
-            Sign up
+          Already have an account?{" "}
+          <a href="/login" className="text-white font-semibold hover:underline">
+            Log in
           </a>
         </p>
       </div>
@@ -68,4 +81,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUp;
