@@ -7,7 +7,7 @@ export default function HomeContent() {
   const handleExploreClick = () => {
     // Handle the explore button click (e.g., navigate to another page, or show more content).
     console.log("Explore button clicked!");
-  };
+};
 
   return (
     <div
