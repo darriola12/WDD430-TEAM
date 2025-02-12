@@ -1,15 +1,4 @@
 
-<<<<<<< Updated upstream
-import React from "react";
-import Navbar from "./navbar"; // Adjust the import path.
-
-export default function HomeContent() {
-  const handleExploreClick = () => {
-    // Handle the explore button click (e.g., navigate to another page, or show more content).
-    console.log("Explore button clicked!");
-};
-=======
-// import Navbar from "./ui/navbar";
 import  Card from "./components/artistsRandom";
 import { getArtists} from '@/app/lib/data';
 import Hero from './components/hero';
