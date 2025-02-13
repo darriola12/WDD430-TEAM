@@ -1,0 +1,18 @@
+.buttonExplore {
+    background: black;
+    color: white;
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 35px;
+    border-radius: 6px;
+    
+}
+.buttonExplore:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    border: 1px solid black; /* Solo cambia el color, el tamaño no varía */
+
+}
