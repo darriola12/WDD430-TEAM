@@ -1,4 +1,11 @@
 
+<<<<<<< Updated upstream
+import  Card from "./components/artistsRandom";
+import { getArtists} from '@/app/lib/data';
+import Hero from './components/hero';
+>>>>>>> Stashed changes
+=======
+// import Navbar from "./ui/navbar";
 import  Card from "./components/artistsRandom";
 import { getArtists} from '@/app/lib/data';
 import Hero from './components/hero';
